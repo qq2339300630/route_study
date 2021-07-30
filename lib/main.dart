@@ -24,7 +24,6 @@ class MyApp extends StatelessWidget {
       ),
       onGenerateRoute: (RouteSettings setting) {
         String? routeName = setting.name;
-
       },
       //home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );

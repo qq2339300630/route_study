@@ -1,4 +1,7 @@
 import 'package:flutter/material.dart';
+import 'package:route_study/share.dart';
+
+import 'function.dart';
 
 class NewRoute extends StatelessWidget {
   const NewRoute({Key? key}) : super(key: key);
@@ -44,7 +47,7 @@ class TipRoute extends StatelessWidget {
                 onPressed: () {
                   Navigator.pop(context, 'hello world');
                 },
-                child: const Text('返回'),
+                child: const InheritedWidgetTestRoute(),
               )
             ],
           ),
