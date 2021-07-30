@@ -1,6 +1,8 @@
 import 'package:flutter/material.dart';
 
 class NewRoute extends StatelessWidget {
+  const NewRoute({Key? key}) : super(key: key);
+
   @override
   Widget build(BuildContext context) {
     return Scaffold(
@@ -11,10 +13,7 @@ class NewRoute extends StatelessWidget {
         child: TextButton(
             child: const Text('This is new route'),
             onPressed: () async {
-              var result = await Navigator.push(context,
-                  MaterialPageRoute(builder: (context) {
-                return const TipRoute(text: "你好呀");
-              }));
+              var result = await Navigator.pushNamed(context, 'tip_route',arguments: '你好呀');
               print(result);
             }),
       ),
@@ -23,12 +22,14 @@ class NewRoute extends StatelessWidget {
 }
 
 class TipRoute extends StatelessWidget {
-  final String text;
+  String text;
 
-  const TipRoute({Key? key, required this.text}) : super(key: key);
+  TipRoute({Key? key, required this.text}) : super(key: key);
 
   @override
   Widget build(BuildContext context) {
+    text =  ModalRoute.of(context)!.settings.arguments as String;
+
     return Scaffold(
       appBar: AppBar(
         title: const Text('提示'),

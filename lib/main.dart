@@ -12,10 +12,17 @@ class MyApp extends StatelessWidget {
   Widget build(BuildContext context) {
     return MaterialApp(
       title: 'Flutter Demo',
+      routes: {
+        'new_route': (BuildContext context) {
+          return const NewRoute();
+        },
+        'tip_route': (context) =>  TipRoute(text: ''),
+        '/':(context)=>const MyHomePage(title: 'first page')
+      },
       theme: ThemeData(
         primarySwatch: Colors.blue,
       ),
-      home: const MyHomePage(title: 'Flutter Demo Home Page'),
+      //home: const MyHomePage(title: 'Flutter Demo Home Page'),
     );
   }
 }
@@ -60,9 +67,7 @@ class _MyHomePageState extends State<MyHomePage> {
       ),
       floatingActionButton: FloatingActionButton(
         onPressed: () {
-          Navigator.push(context, MaterialPageRoute(builder: (context) {
-            return NewRoute();
-          }));
+          Navigator.pushNamed(context, 'new_route');
         },
         tooltip: 'Increment',
         child: const Icon(Icons.add),
