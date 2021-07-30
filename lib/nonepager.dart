@@ -35,7 +35,7 @@ class TipRoute extends StatelessWidget {
         title: const Text('提示'),
       ),
       body: Padding(
-        padding: EdgeInsets.all(18),
+        padding: const EdgeInsets.all(18),
         child: Center(
           child: Column(
             children: <Widget>[
